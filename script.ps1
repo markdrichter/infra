@@ -1,5 +1,20 @@
+param(
+		[Parameter(Mandatory=$true)]
+		$ComputerName 
+	)
+
 Write-Host "Beging installing IIS features..."
 
-Add-WindowsFeature foo
+Import-Module .\OSFeatures.psm1
+
+$result = Test-PSRemoting -ComputerName 08Web
+
+if ($result -ne $true)
+{
+	Write-Host "PowerShell remoting on $ComputerName is not enabled. It needs to be."
+	return 1
+}
 
 Write-Host "...finished installing IIS features."
+
+return 0
