@@ -9,6 +9,8 @@ Import-Module .\OSFeatures.psm1
 
 $result = Test-PSRemoting -ComputerName 08Web
 
+Write-Host $result
+
 if ($result -ne $true)
 {
 	Write-Host "PowerShell remoting on $ComputerName is not enabled. It needs to be."
