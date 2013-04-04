@@ -3,4 +3,4 @@ param(
 		$ComputerName 
 	)
 
-Enable-PSRemoting –force
+Enable-PSRemoting -Force
