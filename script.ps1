@@ -12,7 +12,8 @@
 		$result = Test-PSRemoting -ComputerName $ComputerName
 		if ($result -eq $False) { 
 			Write-Host $result
-			Exit -1 
+			%ERRORLEVEL% = 1
+			Exit
 		}
 		Add-OSFeature -ComputerName $ComputerName -FeatureName Web-Server
 	}
