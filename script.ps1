@@ -3,13 +3,18 @@ param(
 		$ComputerName 
 	)
 
-	
-	Get-Service winrm
+	Import-Module ./OSFeatures.psm1
 	
 	Enable-PSRemoting -Force
+	try {
 	
-	Import-Module ./OSFeatures.psm1
-
-	$result = Test-PSRemoting -ComputerName 08WEB
+		$ErrorActionPreference = "Stop"
+		$result = Test-PSRemoting -ComputerName 08WEB
+	}
+	catch {
+		Write-Host $_
+		Exit 1
+	}
 	
-	return $result
+	
+	Exit 0
