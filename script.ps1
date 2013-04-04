@@ -7,9 +7,9 @@ Write-Host "Beging installing IIS features..."
 
 Import-Module .\OSFeatures.psm1
 
-$result = Test-PSRemoting -ComputerName 08Web
+#$result = Test-PSRemoting -ComputerName 08Web
 
-Write-Host $result
+#Write-Host $result
 
 #if ($result -ne $true)
 #{
@@ -17,7 +17,7 @@ Write-Host $result
 #	return $result
 #}
 
-Add-OSFeature -ComputerName 08WEB -FeatureName Web-Server
+Get-OSFeature -ComputerName 08WEB 
 
 Write-Host "...finished installing IIS features."
 
