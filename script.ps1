@@ -11,11 +11,13 @@ $result = Test-PSRemoting -ComputerName 08Web
 
 Write-Host $result
 
-if ($result -ne $true)
-{
-	Write-Host "PowerShell remoting on $ComputerName is not enabled. It needs to be."
-	return $result
-}
+#if ($result -ne $true)
+#{
+#	Write-Host "PowerShell remoting on $ComputerName is not enabled. It needs to be."
+#	return $result
+#}
+
+Add-OSFeature -ComputerName 08WEB -FeatureName Web-Server
 
 Write-Host "...finished installing IIS features."
 
