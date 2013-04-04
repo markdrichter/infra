@@ -3,4 +3,7 @@ param(
 		$ComputerName 
 	)
 
-Enable-PSRemoting -Force
+	
+	Get-Service winrm
+	
+	Enable-PSRemoting -Force
