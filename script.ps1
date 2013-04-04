@@ -10,17 +10,14 @@
 	
 		$ErrorActionPreference = "Stop"
 		$result = Test-PSRemoting -ComputerName $ComputerName
-		Write-Host $result
 		if ($result -eq $False) { 
+			Write-Host $result
 			Exit 1 
-			return
 		}
 		Add-OSFeature -ComputerName $ComputerName -FeatureName Web-Server
 	}
 	catch {
 		Write-Host $_
 		Exit 1
-		return
 	}
 	
-	Exit 0
