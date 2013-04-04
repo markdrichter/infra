@@ -17,7 +17,7 @@ Import-Module .\OSFeatures.psm1
 #	return $result
 #}
 
-Get-OSFeature -ComputerName 08WEB 
+#Get-OSFeature -ComputerName 08WEB >> .\windows_features.txt
 
 Write-Host "...finished installing IIS features."
 
