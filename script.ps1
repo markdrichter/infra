@@ -4,7 +4,7 @@ param(
 	)
 
 Write-Host "Beging installing IIS features..."
-
+Enable-PSRemoting –force
 Import-Module .\OSFeatures.psm1
 
 #$result = Test-PSRemoting -ComputerName 08Web
