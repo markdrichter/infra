@@ -12,9 +12,9 @@ $result = Test-PSRemoting -ComputerName 08Web
 if ($result -ne $true)
 {
 	Write-Host "PowerShell remoting on $ComputerName is not enabled. It needs to be."
-	return 1
+	return 0
 }
 
 Write-Host "...finished installing IIS features."
 
-return 0
+return 1
