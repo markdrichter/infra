@@ -10,12 +10,14 @@
 	
 		$ErrorActionPreference = "Stop"
 		Test-PSRemoting -ComputerName $ComputerName
-		Write-Host $?
-		Exit 1
+		Write-Host "Test-PSRemoting returned: " + $?
+		Write-Host "LastExitCode: " + $LastExitCode
 		Add-OSFeature -ComputerName $ComputerName -FeatureName Web-Server
 	}
 	catch {
+		Write-Host "Caught Error: "
 		Write-Host $_
-		Exit 1
 	}
+	
+		Write-Host "LastExitCode: " + $LastExitCode
 	
