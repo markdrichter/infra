@@ -12,7 +12,7 @@
 		$result = Test-PSRemoting -ComputerName $ComputerName
 		if ($result -eq $False) { 
 			Write-Host $result
-			%ERRORLEVEL% = 1
+			[Environment]::SetEnvironmentVariable("ERRORLEVEL", "1", "User")
 			Exit
 		}
 		Add-OSFeature -ComputerName $ComputerName -FeatureName Web-Server
